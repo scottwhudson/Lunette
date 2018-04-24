@@ -83,6 +83,14 @@ function obj:bindHotkeys()
   hs.hotkey.bind({"alt", "cmd", "shift"}, "Z", function()
     exec("redo")
   end)
+
+  hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", function()
+    exec("nextDisplay")
+  end)
+
+  hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left", function()
+    exec("prevDisplay")
+  end)
 end
 
 history = History:init()
@@ -123,6 +131,10 @@ function exec(command)
     newFrame = Command:enlarge(windowFrame, screenFrame)
   elseif command == "shrink" then
     newFrame = Command:shrink(windowFrame, screenFrame)
+  elseif command == "nextDisplay" then
+    newFrame = Command:nextDisplay(windowFrame, screenFrame)
+  elseif command == "prevDisplay" then
+    newFrame = Command:prevDisplay(windowFrame, screenFrame)
   elseif command == "redo" then
     newFrame = history:retrieveNextState()
   elseif command == "undo" then
