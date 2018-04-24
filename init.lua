@@ -124,12 +124,12 @@ function exec(command)
   elseif command == "shrink" then
     newFrame = Command:shrink(windowFrame, screenFrame)
   elseif command == "redo" then
-    newFrame = Command:redo(windowFrame, screenFrame)
+    newFrame = history:retrieveNextState()
   elseif command == "undo" then
-    newFrame = history:pop()
+    newFrame = history:retrievePrevState()
   end
 
-  if command ~= "rewind" then
+  if command ~= "undo" and command ~= "redo" then
     history:push(currentFrame, newFrame)
   end
 
