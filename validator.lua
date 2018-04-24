@@ -58,6 +58,26 @@ function obj:bottomThird(window, screen)
          math.floor(window.h) == math.floor(screen.h / 3)
 end
 
+function obj:bottomLeftHalf(window, screen)
+  return window.x == screen.x and
+         window.y == screen.h / 2 and
+         window.w == screen.w / 2 and
+         window.h == screen.h / 2
+end
+
+function obj:bottomLeftThird(window, screen)
+  return window.x == screen.x and
+         window.y == screen.h / 2 and
+         math.floor(window.w) == math.floor(screen.w / 3) and
+         window.h == screen.h / 2
+end
+
+function obj:bottomRightThird(window, screen)
+end
+
+function obj:bottomRightHalf(window, screen)
+end
+
 function obj:leftHalf(window, screen)
   return window.x == screen.x and
          window.y == screen.y and

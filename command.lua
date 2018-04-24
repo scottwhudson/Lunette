@@ -63,10 +63,6 @@ function obj:bottomHalf(windowFrame, screenFrame)
   return newFrame
 end
 
-function obj:bottomLeft(windowFrame, screenFrame)
-  print("foo")
-end
-
 function obj:topLeft(windowFrame, screenFrame)
   local newFrame
 
@@ -95,11 +91,32 @@ function obj:topRight(windowFrame, screenFrame)
   return newFrame
 end
 
-
 function obj:bottomRight(windowFrame, screenFrame)
+  local newFrame
+
+  if Validator:bottomRightHalf(windowFrame, screenFrame) then
+    newFrame = Resize:bottomRightThird(windowFrame, screenFrame)
+  elseif Validator:bottomRightThird(windowFrame, screenFrame) then
+    newFrame = Resize:bottomRightTwoThirds(windowFrame, screenFrame)
+  else
+    newFrame = Resize:bottomRightHalf(windowFrame, screenFrame)
+  end
+
+  return newFrame
 end
 
 function obj:bottomLeft(windowFrame, screenFrame)
+  local newFrame
+
+  if Validator:bottomLeftHalf(windowFrame, screenFrame) then
+    newFrame = Resize:bottomLeftThird(windowFrame, screenFrame)
+  elseif Validator:bottomLeftThird(windowFrame, screenFrame) then
+    newFrame = Resize:bottomLeftTwoThirds(windowFrame, screenFrame)
+  else
+    newFrame = Resize:bottomLeftHalf(windowFrame, screenFrame)
+  end
+
+  return newFrame
 end
 
 function obj:rightHalf(windowFrame, screenFrame)
