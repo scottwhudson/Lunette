@@ -11,51 +11,56 @@ obj.spoonPath = script_path()
 Validator = dofile(obj.spoonPath.."/validator.lua")
 Resize = dofile(obj.spoonPath.."/resize.lua")
 
-
 function obj:leftHalf(windowFrame, screenFrame)
+  local newFrame
 
   if Validator:leftHalf(windowFrame, screenFrame) then
-    window = Resize:leftThird(windowFrame, screenFrame)
+    newFrame = Resize:leftThird(windowFrame, screenFrame)
   elseif Validator:leftThird(windowFrame, screenFrame) then
-    window = Resize:leftTwoThirds(windowFrame, screenFrame)
+    newFrame = Resize:leftTwoThirds(windowFrame, screenFrame)
   else
-    window = Resize:leftHalf(windowFrame, screenFrame)
+    newFrame = Resize:leftHalf(windowFrame, screenFrame)
   end
 
-  return window
+  return newFrame
 end
 
 function obj:fullscreen(windowFrame, screenFrame)
-  windowFrame = Resize:full(windowFrame, screenFrame)
-  return windowFrame
+  local newFrame = Resize:full(windowFrame, screenFrame)
+  return newFrame
 end
 
 function obj:center(windowFrame, screenFrame)
-  windowFrame = Resize:center(windowFrame, screenFrame)
+  local newFrame = Resize:center(windowFrame, screenFrame)
+  return newFrame
 end
 
 function obj:topHalf(windowFrame, screenFrame)
+  local newFrame
+
   if Validator:topHalf(windowFrame, screenFrame) then
-    windowFrame = Resize:topThird(windowFrame, screenFrame)
+    newFrame = Resize:topThird(windowFrame, screenFrame)
   elseif Validator:topThird(windowFrame, screenFrame) then
-    windowFrame = Resize:topTwoThirds(windowFrame, screenFrame)
+    newFrame = Resize:topTwoThirds(windowFrame, screenFrame)
   else
-    windowFrame = Resize:topHalf(windowFrame, screenFrame)
+    newFrame = Resize:topHalf(windowFrame, screenFrame)
   end
 
-  return windowFrame
+  return newFrame
 end
 
 function obj:bottomHalf(windowFrame, screenFrame)
+  local newFrame
+
   if Validator:bottomHalf(windowFrame, screenFrame) then
-    windowFrame = Resize:bottomThird(windowFrame, screenFrame)
+    newFrame = Resize:bottomThird(windowFrame, screenFrame)
   elseif Validator:bottomThird(windowFrame, screenFrame) then
-    windowFrame = Resize:bottomTwoThirds(windowFrame, screenFrame)
+    newFrame = Resize:bottomTwoThirds(windowFrame, screenFrame)
   else
-    windowFrame = Resize:bottomHalf(windowFrame, screenFrame)
+    newFrame = Resize:bottomHalf(windowFrame, screenFrame)
   end
 
-  return windowFrame
+  return newFrame
 end
 
 function obj:bottomLeft(windowFrame, screenFrame)
@@ -63,10 +68,10 @@ function obj:bottomLeft(windowFrame, screenFrame)
 end
 
 function obj:topLeft(windowFrame, screenFrame)
+  local newFrame = Resize:topLeftCorner(windowFrame, screenFrame)
 
-  windowFrame = Resize:topLeftCorner(windowFrame, screenFrame)
 
-  window:setFrame(windowFrame)
+  return newFrame
 end
 
 function obj:bottomRight(windowFrame, screenFrame)
@@ -76,63 +81,70 @@ function obj:bottomLeft(windowFrame, screenFrame)
 end
 
 function obj:rightHalf(windowFrame, screenFrame)
+  local newFrame
+
   if Validator:rightHalf(windowFrame, screenFrame) then
-    windowFrame = Resize:rightThird(windowFrame, screenFrame)
+    newFrame = Resize:rightThird(windowFrame, screenFrame)
   elseif Validator:rightThird(windowFrame, screenFrame) then
-    windowFrame = Resize:rightTwoThirds(windowFrame, screenFrame)
+    newFrame = Resize:rightTwoThirds(windowFrame, screenFrame)
   else
-    windowFrame = Resize:rightHalf(windowFrame, screenFrame)
+    newFrame = Resize:rightHalf(windowFrame, screenFrame)
   end
 
-  return windowFrame
+  return newFrame
 end
 
 function obj:enlarge(windowFrame, screenFrame)
-  windowFrame = Resize:enlarge(windowFrame, screen)
-
-  window:setFrame(windowFrame)
+  local newFrame = Resize:enlarge(windowFrame, screen)
+  return newFrame
 end
 
 function obj:shrink(windowFrame, screenFrame)
-  windowFrame = Resize:shrink(windowFrame, screen)
-
-  window:setFrame(windowFrame)
+  local newFrame = Resize:shrink(windowFrame, screen)
+  return newFrame
 end
 
 function obj:nextThird(windowFrame, screenFrame)
-  if is_left_third(windowFrame, screenFrame) then
-    windowFrame = resize_center_vertical_third(windowFrame, screenFrame)
-  elseif is_center_vertical_third(windowFrame, screenFrame) then
-    windowFrame = resize_right_third(windowFrame, screenFrame)
-  elseif is_right_third(windowFrame, screenFrame) then
-    windowFrame = resize_top_third(windowFrame, screenFrame)
-  elseif is_top_third(windowFrame, screenFrame) then
-    windowFrame = resize_center_horizontal_third(windowFrame, screenFrame)
-  elseif is_center_horizontal_third(windowFrame, screenFrame) then
-    windowFrame = resize_bottom_third(windowFrame, screenFrame)
+  local newFrame
+
+  if Validator:leftThird(windowFrame, screenFrame) then
+    newFrame = Resize:centerVerticalThird(windowFrame, screenFrame)
+  elseif Validator:centerVerticalThird(windowFrame, screenFrame) then
+    newFrame = Resize:rightThird(windowFrame, screenFrame)
+  elseif Validator:rightThird(windowFrame, screenFrame) then
+    newFrame = Resize:topThird(windowFrame, screenFrame)
+  elseif Validator:topThird(windowFrame, screenFrame) then
+    newFrame = Resize:centerHorizontalThird(windowFrame, screenFrame)
+  elseif Validator:centerHorizontalThird(windowFrame, screenFrame) then
+    newFrame = Resize:bottomThird(windowFrame, screenFrame)
   else
-    windowFrame = resize_left_third(windowFrame, screenFrame)
+    newFrame = Resize:leftThird(windowFrame, screenFrame)
   end
 
-  window:setFrame(windowFrame)
+  return newFrame
 end
 
 function obj:prevThird(windowFrame, screenFrame)
-  if is_left_third(windowFrame, screenFrame) then
-    windowFrame = resize_bottom_third(windowFrame, screenFrame)
-  elseif is_bottom_third(windowFrame, screenFrame) then
-    windowFrame = resize_center_horizontal_third(windowFrame, screenFrame)
-  elseif is_center_horizontal_third(windowFrame, screenFrame) then
-    windowFrame = resize_top_third(windowFrame, screenFrame)
-  elseif is_top_third(windowFrame, screenFrame) then
-    windowFrame = resize_right_third(windowFrame, screenFrame)
-  elseif is_right_third(windowFrame, screenFrame) then
-    windowFrame = resize_center_vertical_third(windowFrame, screenFrame)
+  local newFrame
+
+  if Validator:leftThird(windowFrame, screenFrame) then
+    newFrame = Resize:bottomThird(windowFrame, screenFrame)
+  elseif Validator:bottomThird(windowFrame, screenFrame) then
+    newFrame = Resize:centerHorizontalThird(windowFrame, screenFrame)
+  elseif Validator:centerHorizontalThird(windowFrame, screenFrame) then
+    newFrame = Resize:topThird(windowFrame, screenFrame)
+  elseif Validator:topThird(windowFrame, screenFrame) then
+    newFrame = Resize:rightThird(windowFrame, screenFrame)
+  elseif Validator:rightThird(windowFrame, screenFrame) then
+    newFrame = Resize:centerVerticalThird(windowFrame, screenFrame)
   else
-    windowFrame = resize_left_third(windowFrame, screenFrame)
+    newFrame = Resize:leftThird(windowFrame, screenFrame)
   end
 
-  window:setFrame(windowFrame)
+  return newFrame
+end
+
+function obj:nextScreen(windowFrame, screenFrame)
 end
 
 return obj

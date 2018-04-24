@@ -126,7 +126,6 @@ function exec(command)
   elseif command == "redo" then
     newFrame = Command:redo(windowFrame, screenFrame)
   elseif command == "undo" then
-    print("rewind invoked")
     newFrame = history:pop()
   end
 
