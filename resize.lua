@@ -165,7 +165,31 @@ function obj:bottomLeftTwoThirds(window, screen)
   return window
 end
 
-function obj:bottomRightCorner(window, screen)
+function obj:bottomRightHalf(window, screen)
+  window.x = (screen.w / 2) + screen.x
+  window.y = (screen.h / 2) + screen.y
+  window.w = screen.w / 2
+  window.h = screen.h / 2
+
+  return window
+end
+
+function obj:bottomRightThird(window, screen)
+  window.x = ((screen.w / 3) * 2) + screen.x
+  window.y = (screen.h / 2) + screen.y
+  window.w = screen.w / 3
+  window.h = screen.h / 2
+
+  return window
+end
+
+function obj:bottomRightTwoThirds(window, screen)
+  window.x = (screen.w / 3) + screen.x
+  window.y = (screen.h / 2) + screen.y
+  window.w = (screen.w / 3) * 2
+  window.h = screen.h / 2
+
+  return window
 end
 
 function obj:bottomThird(window, screen)
