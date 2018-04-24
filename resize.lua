@@ -57,10 +57,28 @@ function obj:topHalf(window, screen)
   return window
 end
 
-function obj:topLeftCorner(window, screen)
+function obj:topLeftHalf(window, screen)
   window.x = screen.x
   window.y = screen.y
   window.w = screen.w / 2
+  window.h = screen.h / 2
+
+  return window
+end
+
+function obj:topLeftThird(window, screen)
+  window.x = screen.x
+  window.y = screen.y
+  window.w = screen.w / 3
+  window.h = screen.h / 2
+
+  return window
+end
+
+function obj:topLeftTwoThirds(window, screen)
+  window.x = screen.x
+  window.y = screen.y
+  window.w = (screen.w / 3) * 2
   window.h = screen.h / 2
 
   return window

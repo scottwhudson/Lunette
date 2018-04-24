@@ -68,8 +68,15 @@ function obj:bottomLeft(windowFrame, screenFrame)
 end
 
 function obj:topLeft(windowFrame, screenFrame)
-  local newFrame = Resize:topLeftCorner(windowFrame, screenFrame)
+  local newFrame
 
+  if Validator:topLeftHalf(windowFrame, screenFrame) then
+    newFrame = Resize:topLeftThird(windowFrame, screenFrame)
+  elseif Validator:topLeftThird(windowFrame, screenFrame) then
+    newFrame = Resize:topLeftTwoThirds(windowFrame, screenFrame)
+  else
+    newFrame = Resize:topLeftHalf(windowFrame, screenFrame)
+  end
 
   return newFrame
 end
