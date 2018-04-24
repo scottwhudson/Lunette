@@ -130,16 +130,11 @@ function exec(command)
     newFrame = history:pop()
   end
 
-  local foo = history:count()
-
-  print(tostring(foo))
-
   if command ~= "rewind" then
     history:push(currentFrame, newFrame)
   end
 
   window:setFrame(newFrame)
-
 end
 
 return obj
