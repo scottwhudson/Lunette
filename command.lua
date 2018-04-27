@@ -11,6 +11,13 @@ obj.spoonPath = script_path()
 Validator = dofile(obj.spoonPath.."/validator.lua")
 Resize = dofile(obj.spoonPath.."/resize.lua")
 
+--- Command:leftHalf(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:leftHalf(windowFrame, screenFrame)
   local newFrame
 
@@ -25,16 +32,37 @@ function obj:leftHalf(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:fullscreen(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:fullscreen(windowFrame, screenFrame)
   local newFrame = Resize:full(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:center(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:center(windowFrame, screenFrame)
   local newFrame = Resize:center(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:topHalf(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:topHalf(windowFrame, screenFrame)
   local newFrame
 
@@ -49,6 +77,13 @@ function obj:topHalf(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:bottomHalf(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:bottomHalf(windowFrame, screenFrame)
   local newFrame
 
@@ -63,6 +98,13 @@ function obj:bottomHalf(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:topLeft(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:topLeft(windowFrame, screenFrame)
   local newFrame
 
@@ -77,6 +119,13 @@ function obj:topLeft(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:topRight(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:topRight(windowFrame, screenFrame)
   local newFrame
 
@@ -91,6 +140,13 @@ function obj:topRight(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:bottomRight(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:bottomRight(windowFrame, screenFrame)
   local newFrame
 
@@ -105,6 +161,13 @@ function obj:bottomRight(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:bottomLeft(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:bottomLeft(windowFrame, screenFrame)
   local newFrame
 
@@ -119,6 +182,13 @@ function obj:bottomLeft(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:rightHalf(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:rightHalf(windowFrame, screenFrame)
   local newFrame
 
@@ -133,16 +203,38 @@ function obj:rightHalf(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:enlarge(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:enlarge(windowFrame, screenFrame)
   local newFrame = Resize:enlarge(windowFrame, screen)
   return newFrame
 end
 
+--- Command:shrink(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:shrink(windowFrame, screenFrame)
   local newFrame = Resize:shrink(windowFrame, screen)
   return newFrame
 end
 
+
+--- Command:nextThird(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:nextThird(windowFrame, screenFrame)
   local newFrame
 
@@ -163,6 +255,13 @@ function obj:nextThird(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:prevThird(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:prevThird(windowFrame, screenFrame)
   local newFrame
 
@@ -183,6 +282,13 @@ function obj:prevThird(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:nextScreen(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame
+--- and calls corresponding resize method
+---
+--- Returns:
+--- * A screenFrame to be rendered
 function obj:nextScreen(windowFrame, screenFrame)
 end
 

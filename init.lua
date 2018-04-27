@@ -5,6 +5,8 @@ obj.__index = obj
 obj.name = "Lunette"
 obj.version = "0.1"
 obj.author = "Scott Hudson <scott.w.hudson@gmail.com>"
+obj.license = "MIT"
+obj.homepage = "" -- TODO
 
 -- disable animation
 hs.window.animationDuration = 0
@@ -19,78 +21,44 @@ obj.spoonPath = script_path()
 Command = dofile(obj.spoonPath.."/command.lua")
 History = dofile(obj.spoonPath.."/history.lua")
 
-function obj:bindHotkeys()
-  hs.hotkey.bind({"cmd", "alt"}, "Left", function()
-    exec("leftHalf")
-  end)
+DefaultMapping = {
+  leftHalf = {{"cmd", "alt"}, "left"},
+  rightHalf = {{"cmd", "alt"}, "right"},
+  topHalf = {{"cmd", "alt"}, "up"},
+  bottomHalf = {{"cmd", "alt"}, "down"},
+  topLeft = {{"ctrl", "cmd"}, "Left"},
+  topRight = {{"ctrl", "cmd"}, "Right"},
+  bottomLeft = {{"ctrl", "cmd", "shift"}, "Left"},
+  bottomRight = {{"ctrl", "cmd", "shift"}, "Right"},
+  fullscreen = {{"cmd", "alt"}, "F"},
+  center = {{"cmd", "alt"}, "C"},
+  nextThird = {{"ctrl", "alt"}, "Right"},
+  prevThird = {{"ctrl", "alt"}, "Left"},
+  enlarge = {{"ctrl", "alt", "shift"}, "Right"},
+  shrink = {{"ctrl", "alt", "shift"}, "Left"},
+  undo = {{"alt", "cmd"}, "Z"},
+  redo = {{"alt", "cmd", "shift"}, "Z"},
+  nextDisplay = {{"ctrl", "alt", "cmd"}, "Right"},
+  prevDisplay = {{"ctrl", "alt", "cmd"}, "Left"}
+}
 
-  hs.hotkey.bind({"cmd", "alt"}, "Right", function()
-    exec("rightHalf")
-  end)
+function obj:bindHotkeys(userMapping)
+  print("Lunette - binding hotkeys")
 
-  hs.hotkey.bind({"cmd", "alt"}, "Up", function()
-    exec("topHalf")
-  end)
+  local userMapping = {} or userMapping
+  local mapping = DefaultMapping
 
-  hs.hotkey.bind({"cmd", "alt"}, "Down", function()
-    exec("bottomHalf")
-  end)
+  for k, v in pairs(userMapping) do
+    mapping[k] = v
+  end
 
-  hs.hotkey.bind({"ctrl", "cmd"}, "Left", function()
-    exec("topLeft")
-  end)
-
-  hs.hotkey.bind({"ctrl", "cmd"}, "Right", function()
-    exec("topRight")
-  end)
-
-  hs.hotkey.bind({"ctrl", "cmd", "shift"}, "Left", function()
-    exec("bottomLeft")
-  end)
-
-  hs.hotkey.bind({"ctrl", "cmd", "shift"}, "Right", function()
-    exec("bottomRight")
-  end)
-
-  hs.hotkey.bind({"cmd, alt"}, "F", function()
-    exec("fullscreen")
-  end)
-
-  hs.hotkey.bind({"cmd, alt"}, "C", function()
-    exec("center")
-  end)
-
-  hs.hotkey.bind({"ctrl", "alt"}, "Right", function()
-    exec("nextThird")
-  end)
-
-  hs.hotkey.bind({"ctrl", "alt"}, "Left", function()
-    exec("prevThird")
-  end)
-
-  hs.hotkey.bind({"ctrl", "alt", "shift"}, "Right", function()
-    exec("enlarge")
-  end)
-
-  hs.hotkey.bind({"ctrl", "alt", "shift"}, "Left", function()
-    exec("shrink")
-  end)
-
-  hs.hotkey.bind({"alt", "cmd"}, "Z", function()
-    exec("undo")
-  end)
-
-  hs.hotkey.bind({"alt", "cmd", "shift"}, "Z", function()
-    exec("redo")
-  end)
-
-  hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", function()
-    exec("nextDisplay")
-  end)
-
-  hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left", function()
-    exec("prevDisplay")
-  end)
+  for k, v in pairs(mapping) do
+    if mapping[k] then
+      hs.hotkey.bind(v[1], v[2], function()
+        exec(k)
+      end)
+    end
+  end
 end
 
 history = History:init()
