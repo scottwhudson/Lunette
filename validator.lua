@@ -16,6 +16,13 @@ function obj:topThird(window, screen)
          math.floor(window.h) == math.floor(screen.h / 3)
 end
 
+function obj:topTwoThirds(window, screen)
+  return window.x == screen.x and
+         window.y == screen.y and
+         window.w == screen.w and
+         math.floor(window.h) == math.floor((screen.h / 3) * 2)
+end
+
 function obj:topLeftHalf(window, screen)
   return window.x == screen.x and
          window.y == screen.y and
@@ -56,6 +63,13 @@ function obj:bottomThird(window, screen)
          math.floor(window.y) == math.floor(((screen.h / 3) * 2) + screen.y) and
          window.w == screen.w and
          math.floor(window.h) == math.floor(screen.h / 3)
+end
+
+function obj:bottomTwoThirds(window, screen)
+  return window.x == screen.x and
+         math.floor(window.y) == math.floor((screen.h / 3) + screen.y) and
+         window.w == screen.w and
+         math.floor(window.h) == math.floor((screen.h / 3) * 2)
 end
 
 function obj:bottomLeftHalf(window, screen)
@@ -100,6 +114,13 @@ function obj:leftThird(window, screen)
          window.h == screen.h
 end
 
+function obj:leftTwoThirds(window, screen)
+  return window.x == screen.x and
+         window.y == screen.y and
+         math.floor(window.w) == math.floor((screen.w / 3) * 2) and
+         window.h == screen.h
+end
+
 function obj:rightHalf(window, screen)
   return window.x == (screen.w / 2) + screen.x and
          window.y == screen.y and
@@ -111,6 +132,13 @@ function obj:rightThird(window, screen)
   return math.floor(window.x) == math.floor((screen.w / 3) * 2 + screen.x) and
          window.y == screen.y and
          math.floor(window.w) == math.floor(screen.w / 3) and
+         window.h == screen.h
+end
+
+function obj:rightTwoThirds(window, screen)
+  return math.floor(window.x) == math.floor((screen.w / 3) + screen.x) and
+         window.y == screen.y and
+         math.floor(window.w) == math.floor((screen.w / 3) * 2) and
          window.h == screen.h
 end
 

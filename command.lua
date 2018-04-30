@@ -23,9 +23,9 @@ obj.leftHalf = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:leftHalf(windowFrame, screenFrame) then
-    newFrame = Resize:leftThird(windowFrame, screenFrame)
-  elseif Validate:leftThird(windowFrame, screenFrame) then
     newFrame = Resize:leftTwoThirds(windowFrame, screenFrame)
+  elseif Validate:leftTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:leftThird(windowFrame, screenFrame)
   else
     newFrame = Resize:leftHalf(windowFrame, screenFrame)
   end
@@ -68,9 +68,9 @@ obj.topHalf = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:topHalf(windowFrame, screenFrame) then
-    newFrame = Resize:topThird(windowFrame, screenFrame)
-  elseif Validate:topThird(windowFrame, screenFrame) then
     newFrame = Resize:topTwoThirds(windowFrame, screenFrame)
+  elseif Validate:topTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:topThird(windowFrame, screenFrame)
   else
     newFrame = Resize:topHalf(windowFrame, screenFrame)
   end
@@ -89,9 +89,9 @@ obj.bottomHalf = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:bottomHalf(windowFrame, screenFrame) then
-    newFrame = Resize:bottomThird(windowFrame, screenFrame)
-  elseif Validate:bottomThird(windowFrame, screenFrame) then
     newFrame = Resize:bottomTwoThirds(windowFrame, screenFrame)
+  elseif Validate:bottomTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:bottomThird(windowFrame, screenFrame)
   else
     newFrame = Resize:bottomHalf(windowFrame, screenFrame)
   end
@@ -194,9 +194,9 @@ obj.rightHalf = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:rightHalf(windowFrame, screenFrame) then
-    newFrame = Resize:rightThird(windowFrame, screenFrame)
-  elseif Validate:rightThird(windowFrame, screenFrame) then
     newFrame = Resize:rightTwoThirds(windowFrame, screenFrame)
+  elseif Validate:rightTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:rightThird(windowFrame, screenFrame)
   else
     newFrame = Resize:rightHalf(windowFrame, screenFrame)
   end
