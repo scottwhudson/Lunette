@@ -19,7 +19,7 @@ end
 obj.spoonPath = script_path()
 
 Command = dofile(obj.spoonPath.."/command.lua")
-History = dofile(obj.spoonPath.."/history.lua")
+history = dofile(obj.spoonPath.."/history.lua"):init()
 
 DefaultMapping = {
   leftHalf = {{"cmd", "alt"}, "left"},
@@ -43,7 +43,7 @@ DefaultMapping = {
 }
 
 function obj:bindHotkeys(userMapping)
-  print("Lunette - binding hotkeys")
+  print("Lunette: Binding Hotkeys")
 
   local userMapping = {} or userMapping
   local mapping = DefaultMapping
@@ -61,9 +61,7 @@ function obj:bindHotkeys(userMapping)
   end
 end
 
-history = History:init()
-
-function exec(command)
+function exec(commandName)
   local window = hs.window.focusedWindow()
   local windowFrame = window:frame()
   local screen = window:screen()
@@ -71,45 +69,12 @@ function exec(command)
   local currentFrame = window:frame()
   local newFrame
 
-  if command == "leftHalf" then
-    newFrame = Command:leftHalf(windowFrame, screenFrame)
-  elseif command == "rightHalf" then
-    newFrame = Command:rightHalf(windowFrame, screenFrame)
-  elseif command == "topHalf" then
-    newFrame = Command:topHalf(windowFrame, screenFrame)
-  elseif command == "bottomHalf" then
-    newFrame = Command:bottomHalf(windowFrame, screenFrame)
-  elseif command == "topLeft" then
-    newFrame = Command:topLeft(windowFrame, screenFrame)
-  elseif command == "topRight" then
-    newFrame = Command:topRight(windowFrame, screenFrame)
-  elseif command == "bottomLeft" then
-    newFrame = Command:bottomLeft(windowFrame, screenFrame)
-  elseif command == "bottomRight" then
-    newFrame = Command:bottomRight(windowFrame, screenFrame)
-  elseif command == "fullscreen" then
-    newFrame = Command:fullscreen(windowFrame, screenFrame)
-  elseif command == "center" then
-    newFrame = Command:center(windowFrame, screenFrame)
-  elseif command == "nextThird" then
-    newFrame = Command:nextThird(windowFrame, screenFrame)
-  elseif command == "prevThird" then
-    newFrame = Command:prevThird(windowFrame, screenFrame)
-  elseif command == "enlarge" then
-    newFrame = Command:enlarge(windowFrame, screenFrame)
-  elseif command == "shrink" then
-    newFrame = Command:shrink(windowFrame, screenFrame)
-  elseif command == "nextDisplay" then
-    newFrame = Command:nextDisplay(windowFrame, screenFrame)
-  elseif command == "prevDisplay" then
-    newFrame = Command:prevDisplay(windowFrame, screenFrame)
-  elseif command == "redo" then
-    newFrame = history:retrieveNextState()
-  elseif command == "undo" then
+  if commandName == "undo" then
     newFrame = history:retrievePrevState()
-  end
-
-  if command ~= "undo" and command ~= "redo" then
+  elseif commandName == "redo" then
+    newFrame = history:retrieveNextState()
+  else
+    newFrame = Command[commandName](windowFrame, screenFrame)
     history:push(currentFrame, newFrame)
   end
 
