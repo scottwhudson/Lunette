@@ -2,25 +2,19 @@ local obj = {}
 obj.__index = obj
 obj.name = "Resize"
 
--- TODO: fix this
 function obj:enlarge(window, screen)
-  if window.x - 10 > screen.x then
+  if (window.x - 10) >= screen.x then
     window.x = window.x - 10
   end
 
-  if window.y - 10 > screen.y then
-    window.y = screen.y - 10
+  if (window.y - 10) >= screen.y then
+    window.y = window.y - 10
   end
 
-  if window.w + 10 < screen.w then
-    window.w = window.w + 10
-  end
+  window.w = window.w + 20
+  window.h = window.h + 20
 
-  if window.h + 10 < screen.w then
-    window.h = window.h + 10
-  end
-
-  return window
+ return window
 end
 
 function obj:fullScreen(window, screen)
@@ -42,8 +36,8 @@ end
 function obj:shrink(window, screen)
   window.x = window.x + 10
   window.y = window.y + 10
-  window.w = window.w - 10
-  window.h = window.h - 10
+  window.w = window.w - 20
+  window.h = window.h - 20
 
   return window
 end

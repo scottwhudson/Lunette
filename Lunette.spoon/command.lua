@@ -212,7 +212,7 @@ end
 --- Returns:
 --- * A screenFrame to be rendered
 obj.enlarge = function(windowFrame, screenFrame)
-  local newFrame = Resize:enlarge(windowFrame, screen)
+  local newFrame = Resize:enlarge(windowFrame, screenFrame)
   return newFrame
 end
 
@@ -224,7 +224,7 @@ end
 --- Returns:
 --- * A screenFrame to be rendered
 obj.shrink = function(windowFrame, screenFrame)
-  local newFrame = Resize:shrink(windowFrame, screen)
+  local newFrame = Resize:shrink(windowFrame, screenFrame)
   return newFrame
 end
 
