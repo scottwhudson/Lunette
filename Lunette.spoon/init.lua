@@ -6,7 +6,7 @@ obj.name = "Lunette"
 obj.version = "0.1"
 obj.author = "Scott Hudson <scott.w.hudson@gmail.com>"
 obj.license = "MIT"
-obj.homepage = "" -- TODO
+obj.homepage = "https://github.com/scottwhudson/Lunette"
 
 -- disable animation
 hs.window.animationDuration = 0
@@ -30,7 +30,7 @@ DefaultMapping = {
   topRight = {{"ctrl", "cmd"}, "Right"},
   bottomLeft = {{"ctrl", "cmd", "shift"}, "Left"},
   bottomRight = {{"ctrl", "cmd", "shift"}, "Right"},
-  fullscreen = {{"cmd", "alt"}, "F"},
+  fullScreen = {{"cmd", "alt"}, "F"},
   center = {{"cmd", "alt"}, "C"},
   nextThird = {{"ctrl", "alt"}, "Right"},
   prevThird = {{"ctrl", "alt"}, "Left"},

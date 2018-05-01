@@ -2,7 +2,7 @@
  obj.__index = obj
  obj.name = "Validator"
 
- function obj:topHalf(window, screen)
+function obj:topHalf(window, screen)
   return window.x == screen.x and
          window.y == screen.y and
          window.w == screen.w and
@@ -154,6 +154,11 @@ function obj:centerVerticalThird(window, screen)
          window.y == screen.y and
          math.floor(window.w) == math.floor(screen.w / 3) and
          window.h == screen.h
+end
+
+function obj:inScreenBounds(window, screen)
+  return math.floor(window.w) <= math.floor(screen.w) and
+         math.floor(window.h) <= math.floor(screen.h)
 end
 
 return obj

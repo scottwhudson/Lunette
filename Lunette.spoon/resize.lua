@@ -23,7 +23,7 @@ function obj:enlarge(window, screen)
   return window
 end
 
-function obj:full(window, screen)
+function obj:fullScreen(window, screen)
   window.x = screen.x
   window.y = screen.y
   window.w = screen.w
@@ -33,8 +33,8 @@ function obj:full(window, screen)
 end
 
 function obj:center(window, screen)
-  window.x = (screen.w - window.w) / 2
-  window.y = (screen.h - window.h) / 2
+  window.x = ((screen.w - window.w) / 2) + screen.x
+  window.y = ((screen.h - window.h) / 2) + screen.y
 
   return window
 end

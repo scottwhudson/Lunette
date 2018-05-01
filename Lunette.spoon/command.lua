@@ -40,8 +40,8 @@ end
 ---
 --- Returns:
 --- * A screenFrame to be rendered
-obj.fullscreen = function(windowFrame, screenFrame)
-  local newFrame = Resize:full(windowFrame, screenFrame)
+obj.fullScreen = function(windowFrame, screenFrame)
+  local newFrame = Resize:fullScreen(windowFrame, screenFrame)
   return newFrame
 end
 
@@ -290,7 +290,36 @@ end
 ---
 --- Returns:
 --- * A screenFrame to be rendered
-obj.nextScreen = function(windowFrame, screenFrame)
+obj.nextDisplay = function(windowFrame, screenFrame)
+  local currentWindow = hs.window.focusedWindow()
+  local currentScreen = currentWindow:screen()
+  local nextScreen = currentScreen:next()
+  local nextScreenFrame = nextScreen:frame()
+  local newFrame
+
+  if Validate:inScreenBounds(windowFrame, nextScreenFrame) then
+    newFrame = Resize:center(windowFrame, nextScreenFrame)
+  else
+    newFrame = Resize:fullScreen(windowFrame, nextScreenFrame)
+  end
+
+  return newFrame
+end
+
+obj.prevDisplay = function(windowFrame, screenFrame)
+  local currentWindow = hs.window.focusedWindow()
+  local currentScreen = currentWindow:screen()
+  local prevScreen = currentScreen:previous()
+  local prevScreenFrame = prevScreen:frame()
+  local newFrame
+
+  if Validate:inScreenBounds(windowFrame, prevScreenFrame) then
+    newFrame = Resize:center(windowFrame, prevScreenFrame)
+  else
+    newFrame = Resize:fullScreen(windowFrame, prevScreenFrame)
+  end
+
+  return newFrame
 end
 
 return obj
