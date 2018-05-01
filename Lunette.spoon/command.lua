@@ -110,9 +110,9 @@ obj.topLeft = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:topLeftHalf(windowFrame, screenFrame) then
-    newFrame = Resize:topLeftThird(windowFrame, screenFrame)
-  elseif Validate:topLeftThird(windowFrame, screenFrame) then
     newFrame = Resize:topLeftTwoThirds(windowFrame, screenFrame)
+  elseif Validate:topLeftTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:topLeftThird(windowFrame, screenFrame)
   else
     newFrame = Resize:topLeftHalf(windowFrame, screenFrame)
   end
@@ -131,9 +131,9 @@ obj.topRight = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:topRightHalf(windowFrame, screenFrame) then
-    newFrame = Resize:topRightThird(windowFrame, screenFrame)
-  elseif Validate:topRightThird(windowFrame, screenFrame) then
     newFrame = Resize:topRightTwoThirds(windowFrame, screenFrame)
+  elseif Validate:topRightTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:topRightThird(windowFrame, screenFrame)
   else
     newFrame = Resize:topRightHalf(windowFrame, screenFrame)
   end
@@ -152,9 +152,9 @@ obj.bottomRight = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:bottomRightHalf(windowFrame, screenFrame) then
-    newFrame = Resize:bottomRightThird(windowFrame, screenFrame)
-  elseif Validate:bottomRightThird(windowFrame, screenFrame) then
     newFrame = Resize:bottomRightTwoThirds(windowFrame, screenFrame)
+  elseif Validate:bottomRightTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:bottomRightThird(windowFrame, screenFrame)
   else
     newFrame = Resize:bottomRightHalf(windowFrame, screenFrame)
   end
@@ -173,9 +173,9 @@ obj.bottomLeft = function(windowFrame, screenFrame)
   local newFrame
 
   if Validate:bottomLeftHalf(windowFrame, screenFrame) then
-    newFrame = Resize:bottomLeftThird(windowFrame, screenFrame)
-  elseif Validate:bottomLeftThird(windowFrame, screenFrame) then
     newFrame = Resize:bottomLeftTwoThirds(windowFrame, screenFrame)
+  elseif Validate:bottomLeftTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:bottomLeftThird(windowFrame, screenFrame)
   else
     newFrame = Resize:bottomLeftHalf(windowFrame, screenFrame)
   end
