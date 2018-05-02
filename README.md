@@ -2,6 +2,30 @@
 ### Spectacle Window Manager Keybindings For Hammerspoon
 Lunette is an easily configurable and extendible Hammerspoon package that implements all of the Spectacle keybindings.
 
+## Keybindings
+Lunette comes with a set of default keybindings. See installation for more on altering and disabling default keybindings.
+
+| CommandName  | (Chord) - Activator |
+| -------------|:-------------------:|
+| `center`     | (⌥ ⌘) - C          |
+| `fullScreen` | (⌥ ⌘) - F          |
+| `leftHalf`   | (⌥ ⌘) - ←          |
+| `rightHalf`  | (⌥ ⌘) - →          |
+| `topHalf`    | (⌥ ⌘) - ↑          |
+| `bottomHalf` | (⌥ ⌘) - ↓          |
+| `topLeft`    | (⌃ ⌘) - ←          |
+| `bottomLeft` | (⌃ ⌘ ⇧) - ←       |
+| `topRight`   | (⌃ ⌘) - →          |
+| `bottomRight`| (⌃ ⌘ ⇧) - →       |
+| `nextDisplay`| (⌃ ⌥ ⌘) - →       |
+| `prevDisplay`| (⌃ ⌥ ⌘) - ←       |
+| `nextThird`  | (⌃ ⌥ ⌘) - →       |
+| `prevThird`  | (⌃ ⌥ ⌘) - ←       |
+| `enlarge`    | (⌃ ⌥ ⇧) - →       |
+| `shrink`     | (⌃ ⌥ ⇧) - ←       |
+| `undo`       | (⌥ ⌘) - Z          |
+| `redo`       | (⌥ ⌘ ⇧) - Z       |
+
 ## Installation
 1. Install Hammerspoon
 2. Download the Lunette.zip file or clone this repository to your `/Spoons` directory
@@ -20,7 +44,7 @@ Lunette is an easily configurable and extendible Hammerspoon package that implem
 
     To customize or disable specific keybindings, simply create a custom mapping table and pass it as an arg to `bindHotkeys()`.
 
-    To customize keybindings, the mapping table keys must correspond to Lunette command names and their values must either be a two-element map containing either a chord map or single key in the first position, and an activation key in the second position.
+    To customize keybindings, the mapping table keys must correspond to Lunette command names (see keybindings above) and their values must either be a two-element map containing either a chord map or single key in the first position, and an activation key in the second position.
 
     To disable a specific keybinding, set the value of the given command's key to `false`.
     ```lua
@@ -36,22 +60,4 @@ Lunette is an easily configurable and extendible Hammerspoon package that implem
     spoon.Lunette:bindHotkeys(customBindings)
     ```
 
-    Lunette Command Names:
-    - `leftHalf`
-    - `rightHalf`
-    - `topHalf`
-    - `bottomHalf`
-    - `topLeft`
-    - `topRight`
-    - `bottomLeft`
-    - `bottomRight`
-    - `nextThird`
-    - `prevThird`
-    - `enlarge`
-    - `shrink`
-    - `fullScreen`
-    - `center`
-    - `nextScreen`
-    - `prevScreen`
-    - `undo`
-    - `redo`
+## Contribution
