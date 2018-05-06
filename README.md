@@ -5,26 +5,26 @@ Lunette is an easily configurable and extendible Hammerspoon package that implem
 ## Keybindings
 Lunette comes with a set of default keybindings. See installation for more on altering and disabling default keybindings.
 
-| CommandName  | (Chord) - Activator |
+| CommandName  | (Chord) Activator |
 | -------------|:-------------------:|
-| `center`     | (⌥ ⌘) - C          |
-| `fullScreen` | (⌥ ⌘) - F          |
-| `leftHalf`   | (⌥ ⌘) - ←          |
-| `rightHalf`  | (⌥ ⌘) - →          |
-| `topHalf`    | (⌥ ⌘) - ↑          |
-| `bottomHalf` | (⌥ ⌘) - ↓          |
-| `topLeft`    | (⌃ ⌘) - ←          |
-| `bottomLeft` | (⌃ ⌘ ⇧) - ←       |
-| `topRight`   | (⌃ ⌘) - →          |
-| `bottomRight`| (⌃ ⌘ ⇧) - →       |
-| `nextDisplay`| (⌃ ⌥ ⌘) - →       |
-| `prevDisplay`| (⌃ ⌥ ⌘) - ←       |
-| `nextThird`  | (⌃ ⌥ ⌘) - →       |
-| `prevThird`  | (⌃ ⌥ ⌘) - ←       |
-| `enlarge`    | (⌃ ⌥ ⇧) - →       |
-| `shrink`     | (⌃ ⌥ ⇧) - ←       |
-| `undo`       | (⌥ ⌘) - Z          |
-| `redo`       | (⌥ ⌘ ⇧) - Z       |
+| `center`     | (⌥ ⌘) C          |
+| `fullScreen` | (⌥ ⌘) F          |
+| `leftHalf`   | (⌥ ⌘) ←          |
+| `rightHalf`  | (⌥ ⌘) →          |
+| `topHalf`    | (⌥ ⌘) ↑          |
+| `bottomHalf` | (⌥ ⌘) ↓          |
+| `topLeft`    | (⌃ ⌘) ←          |
+| `bottomLeft` | (⌃ ⌘ ⇧) ←       |
+| `topRight`   | (⌃ ⌘) →          |
+| `bottomRight`| (⌃ ⌘ ⇧) →       |
+| `nextDisplay`| (⌃ ⌥ ⌘) →       |
+| `prevDisplay`| (⌃ ⌥ ⌘) ←       |
+| `nextThird`  | (⌃ ⌥ ⌘) →       |
+| `prevThird`  | (⌃ ⌥ ⌘) ←       |
+| `enlarge`    | (⌃ ⌥ ⇧) →       |
+| `shrink`     | (⌃ ⌥ ⇧) ←       |
+| `undo`       | (⌥ ⌘) Z          |
+| `redo`       | (⌥ ⌘ ⇧) Z       |
 
 ## Installation
 1. Install Hammerspoon
