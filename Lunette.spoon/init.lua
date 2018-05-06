@@ -3,7 +3,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "Lunette"
-obj.version = "0.1"
+obj.version = "0.1-beta"
 obj.author = "Scott Hudson <scott.w.hudson@gmail.com>"
 obj.license = "MIT"
 obj.homepage = "https://github.com/scottwhudson/Lunette"
