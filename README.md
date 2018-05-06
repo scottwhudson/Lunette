@@ -27,11 +27,11 @@ Lunette comes with a set of default keybindings. See installation for more on al
 | `redo`       | (⌥ ⌘ ⇧) Z       |
 
 ## Installation
-1. Install Hammerspoon
-2. Download the Lunette.zip file or clone this repository to your `/Spoons` directory
-2. Load Lunette in your Hammerspoon `init.lua` file (usually `~/.hammerspoon/init.lua`):
+1. Download and Install [Hammerspoon](https://github.com/Hammerspoon/hammerspoon/releases)
+2. Download and unzip `Lunette.spoon.zip` to `~/.hammerspoon/Spoons/` or clone this repository and symlink `Lunette.spoon` to `~/.hammerspoon/Spoons`
+2. Load Lunette in `~/.hammerspoon/init.lua`
     ```lua
-    -- init.lua
+    -- ~/.hammerspoon/init.lua
     hs.loadSpoon("Lunette")
     ```
 3. Bind the Lunette Hotkeys
@@ -39,6 +39,7 @@ Lunette comes with a set of default keybindings. See installation for more on al
     For the default Spectacle configuration, simply call `bindHotkeys()` without any arguments in `init.lua`:
 
     ```lua
+    -- ~/.hammerspoon/init.lua
     spoon.Lunette:bindHotkeys()
     ```
 
@@ -61,3 +62,4 @@ Lunette comes with a set of default keybindings. See installation for more on al
     ```
 
 ## Contribution
+Feel free to submit an issue/feature request/pull request.
