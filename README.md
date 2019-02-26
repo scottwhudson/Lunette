@@ -4,7 +4,7 @@
 
 Lunette is an easily configurable and extendible Hammerspoon package that implements all of the Spectacle keybindings.
 
-## Keybindings
+## Default Keybindings
 
 Lunette comes with a set of default keybindings. See installation for more on altering and disabling default keybindings.
 
@@ -77,3 +77,15 @@ Lunette comes with a set of default keybindings. See installation for more on al
 ## Contribution
 
 Feel free to submit an issue/feature request/pull request.
+
+## Changelog
+
+### v0.2
+Minor bugfixes and improvements:
+* use integer division instead of `math.floor` (@shayneholmes)
+* fix issue with stuck bottom corner calculations (@shayneholmes)
+* permit multiple mappings per keybinding (@davidosomething)
+* add gitignore
+
+### v0.1-beta
+Initial Release
