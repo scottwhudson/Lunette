@@ -27,8 +27,8 @@ function obj:fullScreen(window, screen)
 end
 
 function obj:center(window, screen)
-  window.x = ((screen.w - window.w) / 2) + screen.x
-  window.y = ((screen.h - window.h) / 2) + screen.y
+  window.x = ((screen.w - window.w) // 2) + screen.x
+  window.y = ((screen.h - window.h) // 2) + screen.y
 
   return window
 end
@@ -46,7 +46,7 @@ function obj:topHalf(window, screen)
   window.x = screen.x
   window.y = screen.y
   window.w = screen.w
-  window.h = screen.h / 2
+  window.h = screen.h // 2
 
   return window
 end
@@ -54,8 +54,8 @@ end
 function obj:topLeftHalf(window, screen)
   window.x = screen.x
   window.y = screen.y
-  window.w = screen.w / 2
-  window.h = screen.h / 2
+  window.w = screen.w // 2
+  window.h = screen.h // 2
 
   return window
 end
@@ -63,8 +63,8 @@ end
 function obj:topLeftThird(window, screen)
   window.x = screen.x
   window.y = screen.y
-  window.w = screen.w / 3
-  window.h = screen.h / 2
+  window.w = screen.w // 3
+  window.h = screen.h // 2
 
   return window
 end
@@ -72,35 +72,35 @@ end
 function obj:topLeftTwoThirds(window, screen)
   window.x = screen.x
   window.y = screen.y
-  window.w = (screen.w / 3) * 2
-  window.h = screen.h / 2
+  window.w = (screen.w // 3) * 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:topRightHalf(window, screen)
-  window.x = (screen.w / 2) + screen.x
+  window.x = (screen.w // 2) + screen.x
   window.y = screen.y
-  window.w = screen.w / 2
-  window.h = screen.h / 2
+  window.w = screen.w // 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:topRightThird(window, screen)
-  window.x = ((screen.w / 3) * 2) + screen.x
+  window.x = ((screen.w // 3) * 2) + screen.x
   window.y = screen.y
-  window.w = screen.w / 3
-  window.h = screen.h / 2
+  window.w = screen.w // 3
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:topRightTwoThirds(window, screen)
-  window.x = (screen.w / 3) + screen.x
+  window.x = (screen.w // 3) + screen.x
   window.y = screen.y
-  window.w = (screen.w / 3) * 2
-  window.h = screen.h / 2
+  window.w = (screen.w // 3) * 2
+  window.h = screen.h // 2
 
   return window
 end
@@ -109,7 +109,7 @@ function obj:topThird(window, screen)
   window.x = screen.x
   window.y = screen.y
   window.w = screen.w
-  window.h = screen.h / 3
+  window.h = screen.h // 3
 
   return window
 end
@@ -118,88 +118,88 @@ function obj:topTwoThirds(window, screen)
   window.x = screen.x
   window.y = screen.y
   window.w = screen.w
-  window.h = (screen.h / 3) * 2
+  window.h = (screen.h // 3) * 2
 
   return window
 end
 
 function obj:bottomHalf(window, screen)
   window.x = screen.x
-  window.y = (screen.h / 2) + screen.y
+  window.y = (screen.h // 2) + screen.y
   window.w = screen.w
-  window.h = screen.h / 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomLeftHalf(window, screen)
   window.x = screen.x
-  window.y = (screen.h / 2) + screen.y
-  window.w = screen.w / 2
-  window.h = screen.h / 2
+  window.y = (screen.h // 2) + screen.y
+  window.w = screen.w // 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomLeftThird(window, screen)
   window.x = screen.x
-  window.y = (screen.h / 2) + screen.y
-  window.w = screen.w / 3
-  window.h = screen.h / 2
+  window.y = (screen.h // 2) + screen.y
+  window.w = screen.w // 3
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomLeftTwoThirds(window, screen)
   window.x = screen.x
-  window.y = (screen.h / 2) + screen.y
-  window.w = (screen.w / 3) * 2
-  window.h = screen.h / 2
+  window.y = (screen.h // 2) + screen.y
+  window.w = (screen.w // 3) * 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomRightHalf(window, screen)
-  window.x = (screen.w / 2) + screen.x
-  window.y = (screen.h / 2) + screen.y
-  window.w = screen.w / 2
-  window.h = screen.h / 2
+  window.x = (screen.w // 2) + screen.x
+  window.y = (screen.h // 2) + screen.y
+  window.w = screen.w // 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomRightThird(window, screen)
-  window.x = ((screen.w / 3) * 2) + screen.x
-  window.y = (screen.h / 2) + screen.y
-  window.w = screen.w / 3
-  window.h = screen.h / 2
+  window.x = ((screen.w // 3) * 2) + screen.x
+  window.y = (screen.h // 2) + screen.y
+  window.w = screen.w // 3
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomRightTwoThirds(window, screen)
-  window.x = (screen.w / 3) + screen.x
-  window.y = (screen.h / 2) + screen.y
-  window.w = (screen.w / 3) * 2
-  window.h = screen.h / 2
+  window.x = (screen.w // 3) + screen.x
+  window.y = (screen.h // 2) + screen.y
+  window.w = (screen.w // 3) * 2
+  window.h = screen.h // 2
 
   return window
 end
 
 function obj:bottomThird(window, screen)
   window.x = screen.x
-  window.y = ((screen.h / 3) * 2) + screen.y
+  window.y = ((screen.h // 3) * 2) + screen.y
   window.w = screen.w
-  window.h = screen.h / 3
+  window.h = screen.h // 3
 
   return window
 end
 
 function obj:bottomTwoThirds(window, screen)
   window.x = screen.x
-  window.y = (screen.h / 3) + screen.y
+  window.y = (screen.h // 3) + screen.y
   window.w = screen.w
-  window.h = (screen.h / 3) * 2
+  window.h = (screen.h // 3) * 2
 
   return window
 end
@@ -207,7 +207,7 @@ end
 function obj:leftHalf(window, screen)
   window.x = screen.x
   window.y = screen.y
-  window.w = screen.w / 2
+  window.w = screen.w // 2
   window.h = screen.h
 
   return window
@@ -216,7 +216,7 @@ end
 function obj:leftThird(window, screen)
   window.x = screen.x
   window.y = screen.y
-  window.w = screen.w / 3
+  window.w = screen.w // 3
   window.h = screen.h
 
   return window
@@ -225,34 +225,34 @@ end
 function obj:leftTwoThirds(window, screen)
   window.x = screen.x
   window.y = screen.y
-  window.w = (screen.w / 3) * 2
+  window.w = (screen.w // 3) * 2
   window.h = screen.h
 
   return window
 end
 
 function obj:rightHalf(window, screen)
-  window.x = (screen.w / 2) + screen.x
+  window.x = (screen.w // 2) + screen.x
   window.y = screen.y
-  window.w = screen.w / 2
+  window.w = screen.w // 2
   window.h = screen.h
 
   return window
 end
 
 function obj:rightThird(window, screen)
-  window.x = (screen.w / 3) * 2 + screen.x
+  window.x = (screen.w // 3) * 2 + screen.x
   window.y = screen.y
-  window.w = screen.w / 3
+  window.w = screen.w // 3
   window.h = screen.h
 
   return window
 end
 
 function obj:rightTwoThirds(window, screen)
-  window.x = (screen.w / 3) + screen.x
+  window.x = (screen.w // 3) + screen.x
   window.y = screen.y
-  window.w = (screen.w / 3) * 2
+  window.w = (screen.w // 3) * 2
   window.h = screen.h
 
   return window
@@ -260,17 +260,17 @@ end
 
 function obj:centerHorizontalThird(window, screen)
   window.x = screen.x
-  window.y = screen.h / 3
+  window.y = screen.h // 3
   window.w = screen.w
-  window.h = screen.h / 3
+  window.h = screen.h // 3
 
   return window
 end
 
 function obj:centerVerticalThird(window, screen)
-  window.x = screen.w / 3
+  window.x = screen.w // 3
   window.y = screen.y
-  window.w = screen.w / 3
+  window.w = screen.w // 3
   window.h = screen.h
 
   return window
