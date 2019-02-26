@@ -86,6 +86,7 @@ Minor bugfixes and improvements:
 * fix issue with stuck bottom corner calculations (@shayneholmes)
 * permit multiple mappings per keybinding (@davidosomething)
 * add gitignore
+* add release checklist
 
 ### v0.1-beta
 Initial Release
