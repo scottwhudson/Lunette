@@ -33,6 +33,7 @@ Lunette comes with a set of default keybindings. See installation for more on al
 
 1. Download and Install [Hammerspoon](https://github.com/Hammerspoon/hammerspoon/releases)
 1. Download and unzip `Lunette.spoon.zip` to `~/.hammerspoon/Spoons/` or clone this repository and symlink `Lunette.spoon` to `~/.hammerspoon/Spoons`
+1. Make sure you've enabled Hammerspoon with MacOS via System Preferences > Security & Privacy
 1. Load Lunette in `~/.hammerspoon/init.lua`
 
     ```lua
