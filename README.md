@@ -22,8 +22,8 @@ Lunette comes with a set of default keybindings. See installation for more on al
 | `bottomRight`| (⌃ ⌘ ⇧) →       |
 | `nextDisplay`| (⌃ ⌥ ⌘) →       |
 | `prevDisplay`| (⌃ ⌥ ⌘) ←       |
-| `nextThird`  | (⌃ ⌥ ⌘) →       |
-| `prevThird`  | (⌃ ⌥ ⌘) ←       |
+| `nextThird`  | (⌃ ⌥) →       |
+| `prevThird`  | (⌃ ⌥) ←       |
 | `enlarge`    | (⌃ ⌥ ⇧) →       |
 | `shrink`     | (⌃ ⌥ ⇧) ←       |
 | `undo`       | (⌥ ⌘) Z          |
