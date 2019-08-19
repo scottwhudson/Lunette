@@ -1,0 +1,41 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Lunette is an easily configurable and extendible Hammerspoon package that implements all of the Spectacle keybindings.",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Spectacle Window Manager Keybindings For Hammerspoon",
+    "items" : [
+
+    ],
+    "name" : "Lunette"
+  }
+]
