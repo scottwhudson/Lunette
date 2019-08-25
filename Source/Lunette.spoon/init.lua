@@ -3,7 +3,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "Lunette"
-obj.version = "0.2"
+obj.version = "0.3"
 obj.author = "Scott Hudson <scott.w.hudson@gmail.com>"
 obj.license = "MIT"
 obj.homepage = "https://github.com/scottwhudson/Lunette"
@@ -18,10 +18,10 @@ local function script_path()
 end
 obj.spoonPath = script_path()
 
-Command = dofile(obj.spoonPath.."/command.lua")
-history = dofile(obj.spoonPath.."/history.lua"):init()
+obj.Command = dofile(obj.spoonPath.."/command.lua")
+obj.history = dofile(obj.spoonPath.."/history.lua"):init()
 
-DefaultMapping = {
+obj.DefaultMapping = {
   leftHalf = {
     {{"cmd", "alt"}, "left"},
   },
@@ -92,14 +92,14 @@ function obj:bindHotkeys(userBindings)
     if mappings then
       for i, binding in ipairs(mappings) do
         hs.hotkey.bind(binding[1], binding[2], function()
-          exec(command)
+          self:exec(command)
         end)
       end
     end
   end
 end
 
-function exec(commandName)
+function obj:exec(commandName)
   local window = hs.window.focusedWindow()
   local windowFrame = window:frame()
   local screen = window:screen()
@@ -108,12 +108,14 @@ function exec(commandName)
   local newFrame
 
   if commandName == "undo" then
-    newFrame = history:retrievePrevState()
+    newFrame = self.history:retrievePrevState()
   elseif commandName == "redo" then
-    newFrame = history:retrieveNextState()
+    newFrame = self.history:retrieveNextState()
   else
-    newFrame = Command[commandName](windowFrame, screenFrame)
-    history:push(currentFrame, newFrame)
+    print("Lunette: " .. commandName)
+    print(self.Command[commandName])
+    newFrame = self.Command[commandName](windowFrame, screenFrame)
+    self.history:push(currentFrame, newFrame)
   end
 
   window:setFrame(newFrame)
