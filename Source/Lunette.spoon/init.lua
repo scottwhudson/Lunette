@@ -82,7 +82,7 @@ function obj:bindHotkeys(userBindings)
   print("Lunette: Binding Hotkeys")
 
   local userBindings = userBindings or {}
-  local bindings = DefaultMapping
+  local bindings = self.DefaultMapping
 
   for command, mappings in pairs(userBindings) do
     bindings[command] = mappings
