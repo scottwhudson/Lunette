@@ -81,6 +81,15 @@ Feel free to submit an issue/feature request/pull request.
 
 ## Changelog
 
+## v0.3.1
+Bugfix:
+* fix installation error introduced in v0.3 (@jasperzs)
+
+### v0.3
+New features:
+* exposing the window resizer API outside of Lunette (@jokajak)
+* adding SpoonInstaller/Make config (@jokajak)
+
 ### v0.2
 Minor bugfixes and improvements:
 * use integer division instead of `math.floor` (@shayneholmes)
