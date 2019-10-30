@@ -64,10 +64,10 @@ Lunette comes with a set of default keybindings. See installation for more on al
       leftHalf = {
         {{"Q", "W"}, "E"},
         {{"cmd", "alt"}, "left"},
-      }
+      },
       rightHalf = {
         {{"A", "S"}, "D"},
-      }
+      },
       undo = false,
       redo = false
     }
