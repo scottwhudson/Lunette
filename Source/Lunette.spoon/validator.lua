@@ -149,6 +149,13 @@ function obj:leftTwoThirds(window, screen)
          window.h == screen.h
 end
 
+function obj:leftThreeQuarters(window, screen)
+  return window.x == screen.x and
+         window.y == screen.y and
+         window.w == ((screen.w // 4) * 3) and
+         window.h == screen.h
+end
+
 function obj:rightHalf(window, screen)
   return window.x == (screen.w // 2) + screen.x and
          window.y == screen.y and
@@ -167,6 +174,13 @@ function obj:rightTwoThirds(window, screen)
   return window.x == ((screen.w // 3) + screen.x) and
          window.y == screen.y and
          window.w == ((screen.w // 3) * 2) and
+         window.h == screen.h
+end
+
+function obj:rightThreeQuarters(window, screen)
+  return window.x == ((screen.w // 4) + screen.x) and
+         window.y == screen.y and
+         window.w == ((screen.w // 4) * 3) and
          window.h == screen.h
 end
 
