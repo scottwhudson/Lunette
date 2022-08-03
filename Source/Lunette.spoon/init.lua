@@ -25,7 +25,7 @@ obj.spoonPath = script_path()
 obj.Command = dofile(obj.spoonPath.."/command.lua")
 obj.history = dofile(obj.spoonPath.."/history.lua"):init()
 
-obj.DefaultMapping = {
+obj.defaultHotkeys = {
   leftHalf = {
     {{"cmd", "alt"}, "left"},
   },
@@ -86,7 +86,7 @@ function obj:bindHotkeys(userBindings)
   print("Lunette: Binding Hotkeys")
 
   local userBindings = userBindings or {}
-  local bindings = self.DefaultMapping
+  local bindings = self.defaultHotkeys
 
   for command, mappings in pairs(userBindings) do
     bindings[command] = mappings
