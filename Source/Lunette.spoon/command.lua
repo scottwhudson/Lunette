@@ -25,6 +25,8 @@ obj.leftHalf = function(windowFrame, screenFrame)
   if Validate:leftHalf(windowFrame, screenFrame) then
     newFrame = Resize:leftTwoThirds(windowFrame, screenFrame)
   elseif Validate:leftTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:leftThreeQuarters(windowFrame, screenFrame)
+  elseif Validate:leftThreeQuarters(windowFrame, screenFrame) then
     newFrame = Resize:leftThird(windowFrame, screenFrame)
   else
     newFrame = Resize:leftHalf(windowFrame, screenFrame)
@@ -196,6 +198,8 @@ obj.rightHalf = function(windowFrame, screenFrame)
   if Validate:rightHalf(windowFrame, screenFrame) then
     newFrame = Resize:rightTwoThirds(windowFrame, screenFrame)
   elseif Validate:rightTwoThirds(windowFrame, screenFrame) then
+    newFrame = Resize:rightThreeQuarters(windowFrame, screenFrame)
+  elseif Validate:rightThreeQuarters(windowFrame, screenFrame) then
     newFrame = Resize:rightThird(windowFrame, screenFrame)
   else
     newFrame = Resize:rightHalf(windowFrame, screenFrame)
