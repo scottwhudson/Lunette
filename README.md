@@ -34,31 +34,20 @@ Lunette comes with a set of default keybindings. See installation for more on al
 1. Download and Install [Hammerspoon](https://github.com/Hammerspoon/hammerspoon/releases)
 1. Download and unzip `Lunette.spoon.zip` to `~/.hammerspoon/Spoons/` or clone this repository and symlink `Lunette.spoon` to `~/.hammerspoon/Spoons`
 1. Make sure you've enabled Hammerspoon with MacOS via System Preferences > Security & Privacy
-1. Load Lunette in `~/.hammerspoon/init.lua`
+1. Load Lunette in `~/.hammerspoon/init.lua` and bind the Lunette hotkeys:
+
+    ```lua
+    -- ~/.hammerspoon/init.lua
+    hs.spoons.use("Lunette", { hotkeys = "default" })
+    ```
+
+    OPTIONAL:
+
+    Override default hotkey definitions by passing a custom mapping table to `bindHotkeys()`
 
     ```lua
     -- ~/.hammerspoon/init.lua
     hs.loadSpoon("Lunette")
-    ```
-
-1. Bind the Lunette Hotkeys
-
-    For the default Spectacle configuration, simply call `bindHotkeys()` without any arguments in `init.lua`:
-
-    ```lua
-    -- ~/.hammerspoon/init.lua
-    spoon.Lunette:bindHotkeys()
-    ```
-
-    To customize or disable specific keybindings, simply create a custom mapping table and pass it as an arg to `bindHotkeys()`.
-
-    To customize keybindings, the mapping table keys must correspond to Lunette command names (see keybindings above) and their values must either be a two-element map containing either a chord map or single key in the first position, and an activation key in the second position.
-
-    To disable a specific keybinding, set the value of the given command's key to `false`.
-
-    ```lua
-    -- example custom map with `leftHalf` and `rightHalf` reconfigured and the history commands disabled
-    -- you can have multiple bindings to run a command, as shown in leftHalf
 
     customBindings = {
       leftHalf = {
