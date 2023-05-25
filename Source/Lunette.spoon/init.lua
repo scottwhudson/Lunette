@@ -79,7 +79,11 @@ obj.defaultHotkeys = {
   },
   prevDisplay = {
     {{"ctrl", "alt", "cmd"}, "Left"},
-  }
+  },
+  resizeLeft = false,
+  resizeRight = false,
+  resizeUp = false,
+  resizeDown = false,
 }
 
 function obj:bindHotkeys(userBindings)
