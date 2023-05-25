@@ -2,6 +2,109 @@ local obj = {}
 obj.__index = obj
 obj.name = "Resize"
 
+function obj:resizeLeft(window, screen)
+  local by = screen.w * 0.05
+
+  -- we are on the left side of the screen shrink from the right
+  if window.x == 0 then
+    if window.w < by then
+      return window
+    end
+    window.w = window.w - by
+    return window
+  end
+
+  -- grow to the left
+  if window.x - by < screen.x then
+    window.w = window.w + (window.x - screen.x)
+    window.x = screen.x
+  else
+    window.x = window.x - by
+    window.w = window.w + by
+  end
+
+  return window
+end
+
+function obj:resizeRight(window, screen)
+  local by = screen.w * 0.05
+
+  -- we are on the right side of the screen shrink from the left
+  if (window.x + window.w) == screen.w or (window.x == 0 and window.w == screen.w) then
+    if window.w < by then
+      return window
+    end
+    window.x = window.x + by
+    window.w = window.w - by
+    return window
+  end
+
+  -- grow to the right only if space is available
+  if window.x + window.w + by > screen.w then
+    window.w = screen.w - window.x
+  else
+    window.w = window.w + by
+  end
+
+  return window
+end
+
+function obj:resizeUp(window, screen)
+  local by = screen.h * 0.05
+
+  -- shrink towards top
+  if window.y == screen.y or window.h == screen.h then
+    if window.h < by then
+      return window
+    end
+    window.h = window.h - by
+    return window
+  end
+
+  -- grow towards top
+  if window.y - by < screen.y then
+    window.h = window.h + window.y - screen.y
+    window.y = screen.y
+  else
+    window.y = window.y - by
+    window.h = window.h + by
+  end
+
+  return window
+end
+
+function obj:resizeDown(window, screen)
+  local by = screen.h * 0.05
+
+  -- shrink towards bottom
+  if ((window.y + window.h - screen.y) == screen.h) or (window.h == screen.h) then
+    if window.h < by then
+      return window
+    end
+    window.h = window.h - by
+    window.y = window.y + by
+    return window
+  end
+
+  -- grow towards bottom
+  if (window.y - screen.y) + window.h + by > screen.h then
+    -- +--------
+    -- SSSSSSSSS
+    --
+    -- WWWWWWWWW
+    -- W       W
+    -- WWWWWWWWW
+    --
+    -- S/-------
+
+    window.h = window.h + (screen.h - (window.y - screen.y) - window.h)
+  else
+    window.h = window.h + by
+  end
+
+  return window
+end
+
 function obj:enlarge(window, screen)
   if (window.x - 10) >= screen.x then
     window.x = window.x - 10

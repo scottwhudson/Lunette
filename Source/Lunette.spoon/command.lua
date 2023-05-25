@@ -232,6 +232,49 @@ obj.shrink = function(windowFrame, screenFrame)
   return newFrame
 end
 
+--- Command:resizeLeft(windowFrame, screenFrame)
+--- Method
+--- Inspects current screen frame position, determines how to resize given frame.
+--- Will grow the window vertically, except if the window is already at the left screen border.
+--- Then it will shrink the window, retaining the position at the screen border.
+---
+--- Returns:
+--- * A screenFrame to be rendered
+obj.resizeLeft = function(windowFrame, screenFrame)
+	local newFrame = Resize:resizeLeft(windowFrame, screenFrame)
+	return newFrame
+end
+
+--- Command:resizeRight(windowFrame, screenFrame)
+--- Method
+--- Analogous to Command:resizeLeft, but with the right screen border.
+--- Returns:
+--- * A screenFrame to be rendered
+obj.resizeRight = function(windowFrame, screenFrame)
+	local newFrame = Resize:resizeRight(windowFrame, screenFrame)
+	return newFrame
+end
+
+--- Command:resizeUp(windowFrame, screenFrame)
+--- Method
+--- Analogous to Command:resizeLeft, but with the top screen border.
+--- Returns:
+--- * A screenFrame to be rendered
+obj.resizeUp = function(windowFrame, screenFrame)
+	local newFrame = Resize:resizeUp(windowFrame, screenFrame)
+	return newFrame
+end
+
+--- Command:resizeDown(windowFrame, screenFrame)
+--- Method
+--- Analogous to Command:resizeLeft, but with the bottom screen border.
+--- Returns:
+--- * A screenFrame to be rendered
+obj.resizeDown = function(windowFrame, screenFrame)
+	local newFrame = Resize:resizeDown(windowFrame, screenFrame)
+	return newFrame
+end
+
 --- Command:nextThird(windowFrame, screenFrame)
 --- Method
 --- Inspects current screen frame position, determines how to resize given frame

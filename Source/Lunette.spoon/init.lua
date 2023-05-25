@@ -79,7 +79,11 @@ obj.defaultHotkeys = {
   },
   prevDisplay = {
     {{"ctrl", "alt", "cmd"}, "Left"},
-  }
+  },
+  resizeLeft = false,
+  resizeRight = false,
+  resizeUp = false,
+  resizeDown = false,
 }
 
 function obj:bindHotkeys(userBindings)
@@ -116,8 +120,8 @@ function obj:exec(commandName)
   elseif commandName == "redo" then
     newFrame = self.history:retrieveNextState()
   else
-    print("Lunette: " .. commandName)
-    print(self.Command[commandName])
+    -- print("Lunette: " .. commandName)
+    -- print(self.Command[commandName])
     newFrame = self.Command[commandName](windowFrame, screenFrame)
     self.history:push(currentFrame, newFrame)
   end
