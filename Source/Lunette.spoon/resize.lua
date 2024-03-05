@@ -26,6 +26,16 @@ function obj:fullScreen(window, screen)
   return window
 end
 
+function obj:almostFullScreen(window, screen)
+   window.w = screen.w - (screen.w // 10)
+   window.h = screen.h - (screen.h // 10)
+   -- also, center
+   window.x = ((screen.w - window.w) // 2) + screen.x
+   window.y = ((screen.h - window.h) // 2) + screen.y
+
+   return window
+end
+
 function obj:center(window, screen)
   window.x = ((screen.w - window.w) // 2) + screen.x
   window.y = ((screen.h - window.h) // 2) + screen.y
