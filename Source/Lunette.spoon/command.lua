@@ -47,6 +47,11 @@ obj.fullScreen = function(windowFrame, screenFrame)
   return newFrame
 end
 
+obj.almostFullScreen = function(windowFrame, screenFrame)
+   local newFrame = Resize:almostFullScreen(windowFrame, screenFrame)
+   return newFrame
+end
+
 --- Command:center(windowFrame, screenFrame)
 --- Method
 --- Inspects current screen frame position, determines how to resize given frame

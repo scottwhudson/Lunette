@@ -53,6 +53,9 @@ obj.defaultHotkeys = {
   fullScreen = {
     {{"cmd", "alt"}, "F"},
   },
+  almostFullScreen = {
+    {{"cmd", "alt", "shift"}, "F"},
+  },
   center = {
     {{"cmd", "alt"}, "C"},
   },
